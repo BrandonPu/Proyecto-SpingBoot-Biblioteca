@@ -1,2 +1,2 @@
-# Proyecto-SpingBoot1
-Este es el primer Laboratorio del 4to Bimestre de Spring Boot
+# ProyectoPu-SpringBoot
+Este es el primer laboratorio creado con Spring Boot del 4to Bimestre
