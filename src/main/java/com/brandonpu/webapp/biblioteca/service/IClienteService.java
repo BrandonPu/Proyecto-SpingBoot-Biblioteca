@@ -10,7 +10,7 @@ public interface IClienteService {
 
     public Cliente buscarClientePorDpi(Long dpi);
     
-    public void guardarCliente(Cliente cliente);
+    public Cliente guardarCliente(Cliente cliente);
 
     public void eliminarCliente(Cliente cliente);
 }

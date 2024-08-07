@@ -1,10 +1,15 @@
 package com.brandonpu.webapp.biblioteca.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,4 +28,19 @@ public class ClienteController {
     public List<Cliente> listarClientes(){
         return clienteService.listarClientes();
     }
+
+    @PostMapping("/")
+    public ResponseEntity<Map<String, String>> agregarCliente(@RequestBody Cliente cliente){
+        Map<String, String> response = new HashMap<>();
+        try {
+            clienteService.guardarCliente(cliente);
+            response.put("message", "El cliente se creo con exito");
+            return ResponseEntity.ok(response);
+        } catch (Exception e) {
+            response.put("err", "Hubo un error al crear el cliente");
+            return ResponseEntity.badRequest().body(response);
+        }
+
+    }
+
 }

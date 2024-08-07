@@ -52,7 +52,7 @@ public class CategoriaController {
             response.put("message", "La categoria se creo con exito");
             return ResponseEntity.ok(response);
         } catch (Exception e) {
-            response.put("Se agrego con éxito", "Hubo un error al crear la categoria");
+            response.put("err", "Hubo un error al crear la categoria");
             return ResponseEntity.badRequest().body(response);
         }
     }
@@ -68,7 +68,7 @@ public class CategoriaController {
             response.put("message", "La categoria se ha editado con exito");
             return ResponseEntity.ok(response);
         } catch (Exception e) {
-            response.put("message", "La categoria no se puso editado");
+            response.put("err", "La categoria no se puso editado");
             return ResponseEntity.badRequest().body(response);
         }
     }
@@ -83,7 +83,7 @@ public class CategoriaController {
             response.put("message", "Categoria Eliminada con Exito");
             return ResponseEntity.ok(response);
         } catch (Exception e) {
-            response.put("message", "La Categoria no se pudo eliminar");
+            response.put("err", "La Categoria no se pudo eliminar");
             return ResponseEntity.badRequest().body(response);
         }
     }
