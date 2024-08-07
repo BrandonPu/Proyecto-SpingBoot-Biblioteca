@@ -1,0 +1,16 @@
+package com.brandonpu.webapp.biblioteca.service;
+
+import java.util.List;
+
+import com.brandonpu.webapp.biblioteca.model.Cliente;
+
+public interface IClienteService {
+
+    public List<Cliente> listarClientes();
+
+    public Cliente buscarClientePorDpi(Long dpi);
+    
+    public void guardarCliente(Cliente cliente);
+
+    public void eliminarCliente(Cliente cliente);
+}
