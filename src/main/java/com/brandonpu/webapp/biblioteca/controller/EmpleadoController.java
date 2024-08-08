@@ -27,6 +27,7 @@ public class EmpleadoController {
   @Autowired
   EmpleadoService empleadoService;
 
+  //Listar
   @GetMapping("/empleados")
   public ResponseEntity<List<Empleado>> listarEmpleados() {
     try {
