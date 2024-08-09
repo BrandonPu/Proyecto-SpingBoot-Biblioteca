@@ -28,12 +28,12 @@ public class ClienteController {
     ClienteService clienteService;
 
     @GetMapping("/")
-    public List<Cliente> listarClientes(){
+    public List<Cliente> listarClientes() {
         return clienteService.listarClientes();
     }
 
     @GetMapping("/{dpi}")
-    public ResponseEntity<Cliente> buscarClientePorDpi(@PathVariable Long dpi){
+    public ResponseEntity<Cliente> buscarClientePorDpi(@PathVariable Long dpi) {
         try {
             return ResponseEntity.ok(clienteService.buscarClientePorDpi(dpi));
         } catch (Exception e) {
@@ -42,7 +42,7 @@ public class ClienteController {
     }
 
     @PostMapping("/")
-    public ResponseEntity<Map<String, String>> agregarCliente(@RequestBody Cliente cliente){
+    public ResponseEntity<Map<String, String>> agregarCliente(@RequestBody Cliente cliente) {
         Map<String, String> response = new HashMap<>();
         try {
             clienteService.guardarCliente(cliente);
@@ -56,7 +56,8 @@ public class ClienteController {
     }
 
     @PutMapping("/{dpi}")
-    public ResponseEntity<Map<String, String>> editarCliente(@PathVariable Long dpi, @RequestBody Cliente clienteNuevo){
+    public ResponseEntity<Map<String, String>> editarCliente(@PathVariable Long dpi,
+            @RequestBody Cliente clienteNuevo) {
         Map<String, String> response = new HashMap<>();
         try {
             Cliente cliente = clienteService.buscarClientePorDpi(dpi);
@@ -74,7 +75,7 @@ public class ClienteController {
     }
 
     @DeleteMapping("/{dpi}")
-    public ResponseEntity<Map<String, String>> eliminarCliente(@PathVariable Long dpi){
+    public ResponseEntity<Map<String, String>> eliminarCliente(@PathVariable Long dpi) {
         Map<String, String> response = new HashMap<>();
         try {
             Cliente cliente = clienteService.buscarClientePorDpi(dpi);

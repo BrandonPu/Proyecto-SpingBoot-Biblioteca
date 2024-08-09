@@ -9,7 +9,7 @@ import com.brandonpu.webapp.biblioteca.model.Libro;
 import com.brandonpu.webapp.biblioteca.repository.LibroRepository;
 
 @Service
-public class LibroService implements ILibroService{
+public class LibroService implements ILibroService {
 
     @Autowired
     LibroRepository libroRepository;

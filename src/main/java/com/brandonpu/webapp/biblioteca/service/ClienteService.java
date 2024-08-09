@@ -9,7 +9,7 @@ import com.brandonpu.webapp.biblioteca.model.Cliente;
 import com.brandonpu.webapp.biblioteca.repository.ClienteRepository;
 
 @Service
-public class ClienteService implements IClienteService{
+public class ClienteService implements IClienteService {
 
     @Autowired
     private ClienteRepository clienteRepository;

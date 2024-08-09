@@ -15,11 +15,11 @@ import lombok.ToString;
 @Table(name = "Categorias")
 public class Categoria {
 
-    //Aqui van los atributos del modelo
+    // Aqui van los atributos del modelo
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotNull(message = "NombreCategoria no puede ser nulo")
     private String nombreCategoria;
-    
+
 }

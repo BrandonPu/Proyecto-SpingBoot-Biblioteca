@@ -38,13 +38,14 @@ public class PrestamoController {
     }
 
     @GetMapping("/prestamo")
-    public ResponseEntity<Prestamo> buscarPrestamoPorId(@RequestParam Long id){
-        try{
+    public ResponseEntity<Prestamo> buscarPrestamoPorId(@RequestParam Long id) {
+        try {
             return ResponseEntity.ok(prestamoService.buscarPrestamoPorId(id));
-        }catch (Exception e) {
+        } catch (Exception e) {
             return ResponseEntity.badRequest().body(null);
         }
     }
+
     @PostMapping("/prestamo")
     public ResponseEntity<Map<String, String>> agregarPrestamo(@RequestBody Prestamo prestamo) {
         Map<String, String> response = new HashMap<>();
@@ -60,7 +61,8 @@ public class PrestamoController {
     }
 
     @PutMapping("/prestamo")
-    public ResponseEntity<Map<String, String>> editarPrestamo(@RequestParam Long id, @RequestBody Prestamo prestamoNuevo) {
+    public ResponseEntity<Map<String, String>> editarPrestamo(@RequestParam Long id,
+            @RequestBody Prestamo prestamoNuevo) {
         Map<String, String> response = new HashMap<>();
         try {
             Prestamo prestamo = prestamoService.buscarPrestamoPorId(id);
@@ -81,7 +83,7 @@ public class PrestamoController {
     }
 
     @DeleteMapping("/prestamo")
-    public ResponseEntity<Map<String, String>> eliminarPrestamo(@RequestParam Long id){
+    public ResponseEntity<Map<String, String>> eliminarPrestamo(@RequestParam Long id) {
         Map<String, String> response = new HashMap<>();
         try {
             Prestamo prestamo = prestamoService.buscarPrestamoPorId(id);

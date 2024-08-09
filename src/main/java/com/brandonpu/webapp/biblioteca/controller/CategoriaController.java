@@ -27,25 +27,25 @@ public class CategoriaController {
     @Autowired
     CategoriaService categoriaService;
 
-    //Listar Categorias como un retorno
+    // Listar Categorias como un retorno
     @GetMapping("/categorias")
-    public List<Categoria> listarCategorias(){
+    public List<Categoria> listarCategorias() {
         return categoriaService.listarCategorias();
     }
 
-    //Buscar
+    // Buscar
     @GetMapping("/categoria")
-    public ResponseEntity<Categoria> buscarCategoriaPorId(@RequestParam Long id){
+    public ResponseEntity<Categoria> buscarCategoriaPorId(@RequestParam Long id) {
         try {
             return ResponseEntity.ok(categoriaService.buscarCategoriaPorId(id));
         } catch (Exception e) {
-           return ResponseEntity.badRequest().body(null);
+            return ResponseEntity.badRequest().body(null);
         }
     }
 
-    //Este es el agregar con mensajes
+    // Este es el agregar con mensajes
     @PostMapping("/categoria")
-    public ResponseEntity<Map<String, String>> agregarCategoria(@RequestBody Categoria categoria){
+    public ResponseEntity<Map<String, String>> agregarCategoria(@RequestBody Categoria categoria) {
         Map<String, String> response = new HashMap<>();
         try {
             categoriaService.guardarCategoria(categoria);
@@ -57,9 +57,10 @@ public class CategoriaController {
         }
     }
 
-    //Editar
+    // Editar
     @PutMapping("/categoria")
-    public ResponseEntity<Map<String, String>> editarCategoria(@RequestParam Long id, @RequestBody Categoria categoriaNueva){
+    public ResponseEntity<Map<String, String>> editarCategoria(@RequestParam Long id,
+            @RequestBody Categoria categoriaNueva) {
         Map<String, String> response = new HashMap<>();
         try {
             Categoria categoria = categoriaService.buscarCategoriaPorId(id);
@@ -73,9 +74,9 @@ public class CategoriaController {
         }
     }
 
-    //Eliminar
+    // Eliminar
     @DeleteMapping("/categoria")
-    public ResponseEntity<Map<String, String>> eliminarCategoria(@RequestParam Long id){
+    public ResponseEntity<Map<String, String>> eliminarCategoria(@RequestParam Long id) {
         Map<String, String> response = new HashMap<>();
         try {
             Categoria categoria = categoriaService.buscarCategoriaPorId(id);
@@ -87,5 +88,5 @@ public class CategoriaController {
             return ResponseEntity.badRequest().body(response);
         }
     }
-    
+
 }

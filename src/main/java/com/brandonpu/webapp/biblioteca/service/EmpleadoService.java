@@ -9,23 +9,23 @@ import com.brandonpu.webapp.biblioteca.model.Empleado;
 import com.brandonpu.webapp.biblioteca.repository.EmpleadoRepository;
 
 @Service
-public class EmpleadoService implements IEmpleadoService{
+public class EmpleadoService implements IEmpleadoService {
 
   @Autowired
   private EmpleadoRepository empleadoRepository;
-  
+
   @Override
   public List<Empleado> listarEmpleados() {
     return empleadoRepository.findAll();
-    
+
   }
 
   @Override
   public Boolean guardarEmpleado(Empleado empleado) {
-    if(!verificarDpiDuplicado(empleado)){
+    if (!verificarDpiDuplicado(empleado)) {
       empleadoRepository.save(empleado);
       return true;
-    }else{
+    } else {
       return false;
     }
   }
@@ -38,7 +38,7 @@ public class EmpleadoService implements IEmpleadoService{
   @Override
   public void eliminarEmpleado(Empleado empleado) {
     empleadoRepository.delete(empleado);
-    
+
   }
 
   @Override
@@ -46,8 +46,8 @@ public class EmpleadoService implements IEmpleadoService{
     List<Empleado> empleados = listarEmpleados();
     Boolean flag = false;
     for (Empleado empleado : empleados) {
-      if(empleado.getDpi().equals(empleadoNuevo.getDpi())){
-          flag = true;//Si existe un dpi duplicado
+      if (empleado.getDpi().equals(empleadoNuevo.getDpi())) {
+        flag = true;// Si existe un dpi duplicado
       }
     }
     return flag;

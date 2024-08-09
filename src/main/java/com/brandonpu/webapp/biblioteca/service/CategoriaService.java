@@ -9,7 +9,7 @@ import com.brandonpu.webapp.biblioteca.model.Categoria;
 import com.brandonpu.webapp.biblioteca.repository.CategoriaRepository;
 
 @Service
-public class CategoriaService implements ICategoriaService{
+public class CategoriaService implements ICategoriaService {
 
     @Autowired
     private CategoriaRepository categoriaRepository;
@@ -31,7 +31,7 @@ public class CategoriaService implements ICategoriaService{
 
     @Override
     public void eliminarCategoria(Categoria categoria) {
-        categoriaRepository.delete(categoria);    
+        categoriaRepository.delete(categoria);
     }
 
 }

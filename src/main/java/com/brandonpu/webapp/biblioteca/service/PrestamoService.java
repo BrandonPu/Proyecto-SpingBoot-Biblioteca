@@ -23,7 +23,7 @@ public class PrestamoService implements IPrestamosService {
     public Prestamo buscarPrestamoPorId(Long id) {
         return prestamoRepository.findById(id).orElse(null);
     }
-    
+
     @Override
     public Prestamo guardarPrestamo(Prestamo prestamo) {
         return prestamoRepository.save(prestamo);

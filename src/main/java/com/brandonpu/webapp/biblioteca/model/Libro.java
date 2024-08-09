@@ -14,7 +14,7 @@ import lombok.Data;
 @Data
 @Table(name = "Libros")
 public class Libro {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
