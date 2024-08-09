@@ -27,7 +27,7 @@ public class EmpleadoController {
   @Autowired
   EmpleadoService empleadoService;
 
-  //Listar
+  // Listar
   @GetMapping("/empleados")
   public ResponseEntity<List<Empleado>> listarEmpleados() {
     try {
@@ -50,9 +50,13 @@ public class EmpleadoController {
   public ResponseEntity<Map<String, String>> agregarEmpleado(@RequestBody Empleado empleado) {
     Map<String, String> response = new HashMap<>();
     try {
-      empleadoService.guardarEmpleado(empleado);
-      response.put("message", "El Empleado se creo con exito");
-      return ResponseEntity.ok(response);
+      if (empleadoService.guardarEmpleado(empleado)) {
+        response.put("message", "El Empleado se creo con exito");
+        return ResponseEntity.ok(response);
+      } else {
+        response.put("err", "El Empleado no se pudo crear, el DPI Duplicado");
+        return ResponseEntity.badRequest().body(response);
+      }
     } catch (Exception e) {
       response.put("message", "Error");
       response.put("err", "Hubo un error al crear el cliente");
@@ -62,7 +66,8 @@ public class EmpleadoController {
   }
 
   @PutMapping("/empleado")
-  public ResponseEntity<Map<String, String>> editarEmpleado(@RequestParam Long id, @RequestBody Empleado empleadoNuevo) {
+  public ResponseEntity<Map<String, String>> editarEmpleado(@RequestParam Long id,
+      @RequestBody Empleado empleadoNuevo) {
     Map<String, String> response = new HashMap<>();
     try {
       Empleado empleado = empleadoService.buscarEmpleadoPorId(id);
