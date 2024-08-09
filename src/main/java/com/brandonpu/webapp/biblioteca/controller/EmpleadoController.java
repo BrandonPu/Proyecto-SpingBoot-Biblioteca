@@ -76,9 +76,13 @@ public class EmpleadoController {
       empleado.setTelefono(empleadoNuevo.getTelefono());
       empleado.setDireccion(empleadoNuevo.getDireccion());
       empleado.setDpi(empleadoNuevo.getDpi());
-      empleadoService.guardarEmpleado(empleado);
-      response.put("message", "El Empleado se ha editado con exito");
-      return ResponseEntity.ok(response);
+      if (empleadoService.guardarEmpleado(empleado)) {
+        response.put("message", "El Empleado se ha editado con exito");
+        return ResponseEntity.ok(response);
+      } else {
+        response.put("err", "El Empleado no se puso editado");
+        return ResponseEntity.badRequest().body(response);
+      }
     } catch (Exception e) {
       response.put("err", "El Empleado no se puso editado");
       return ResponseEntity.badRequest().body(response);

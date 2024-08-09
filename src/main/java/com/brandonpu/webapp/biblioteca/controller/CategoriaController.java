@@ -48,9 +48,13 @@ public class CategoriaController {
     public ResponseEntity<Map<String, String>> agregarCategoria(@RequestBody Categoria categoria) {
         Map<String, String> response = new HashMap<>();
         try {
-            categoriaService.guardarCategoria(categoria);
-            response.put("message", "La categoria se creo con exito");
-            return ResponseEntity.ok(response);
+            if (categoriaService.guardarCategoria(categoria)) {
+                response.put("message", "La categoria se creo con exito");
+                return ResponseEntity.ok(response);
+            } else {
+                response.put("err", "La categoria ya esta hecha");
+                return ResponseEntity.badRequest().body(response);
+            }
         } catch (Exception e) {
             response.put("err", "Hubo un error al crear la categoria");
             return ResponseEntity.badRequest().body(response);
@@ -65,9 +69,14 @@ public class CategoriaController {
         try {
             Categoria categoria = categoriaService.buscarCategoriaPorId(id);
             categoria.setNombreCategoria(categoriaNueva.getNombreCategoria());
-            categoriaService.guardarCategoria(categoria);
-            response.put("message", "La categoria se ha editado con exito");
-            return ResponseEntity.ok(response);
+            if (categoriaService.verificarCategoriaDuplicado(categoria)) {
+                response.put("message", "La categoria se ha editado con exito");
+                return ResponseEntity.ok(response);
+            }else{
+                response.put("err", "La categoria no se puso editado");
+                return ResponseEntity.badRequest().body(response);
+            }
+
         } catch (Exception e) {
             response.put("err", "La categoria no se puso editado");
             return ResponseEntity.badRequest().body(response);
