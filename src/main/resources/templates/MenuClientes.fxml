@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.brandonpu.webapp.biblioteca.controller.FXController.MenuClientes">
+   <children>
+      <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/MenuClientes.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="tfDpi" layoutX="155.0" layoutY="64.0" prefHeight="38.0" prefWidth="219.0" />
+      <TextField fx:id="tfNombre" layoutX="258.0" layoutY="171.0" prefHeight="38.0" prefWidth="242.0" />
+      <TextField fx:id="tfApellido" layoutX="266.0" layoutY="276.0" prefHeight="38.0" prefWidth="242.0" />
+      <TextField fx:id="tfTelefono" layoutX="266.0" layoutY="370.0" prefHeight="38.0" prefWidth="242.0" />
+      <TableView fx:id="tblClientes" layoutX="593.0" layoutY="189.0" onMouseClicked="#cargarFormEditar" prefHeight="438.0" prefWidth="642.0">
+        <columns>
+          <TableColumn fx:id="colDpi" minWidth="111.20001220703125" prefWidth="119.20001220703125" text="DPI" />
+          <TableColumn fx:id="colNombre" minWidth="195.0" prefWidth="200.0" text="Nombre" />
+            <TableColumn fx:id="colApellido" minWidth="179.199951171875" prefWidth="179.199951171875" text="Apellido" />
+            <TableColumn fx:id="colTelefono" minWidth="127.199951171875" prefWidth="140.0" text="Telefono" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnGuardar" layoutX="213.0" layoutY="443.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="51.0" prefWidth="106.0" text="Guardar">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnEliminar" layoutX="1136.0" layoutY="642.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="51.0" prefWidth="106.0" text="Eliminar">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnLimpiar" layoutX="593.0" layoutY="132.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="36.0" prefWidth="168.0" text="Limpiar Formulario">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnRegresar" layoutX="55.0" layoutY="627.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="51.0" prefWidth="137.0" text="Menu Principal">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

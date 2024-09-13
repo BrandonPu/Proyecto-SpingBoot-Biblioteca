@@ -8,6 +8,8 @@ import org.springframework.context.ConfigurableApplicationContext;
 
 import com.brandonpu.webapp.biblioteca.BibliotecaApplication;
 import com.brandonpu.webapp.biblioteca.controller.FXController.IndexController;
+import com.brandonpu.webapp.biblioteca.controller.FXController.MenuCategorias;
+import com.brandonpu.webapp.biblioteca.controller.FXController.MenuClientes;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -56,10 +58,28 @@ public class Main extends Application{
 
     public void indexView(){
         try {
-            IndexController indexView = (IndexController)switchScene("index.fxml", 600, 400);
+            IndexController indexView = (IndexController)switchScene("index.fxml", 1000, 600);
             indexView.setStage(this);
         } catch (Exception e) {
             // TODO: handle exception
+        }
+    }
+
+    public void menuCategorias(){
+        try {
+            MenuCategorias menuCategorias = (MenuCategorias)switchScene("MenuCategorias.fxml", 1000, 600);
+            menuCategorias.setStage(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void menuClientes(){
+        try {
+            MenuClientes menuClientes = (MenuClientes)switchScene("MenuClientes.fxml", 1280, 720);
+            menuClientes.setStage(this);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

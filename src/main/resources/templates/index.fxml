@@ -1,16 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.brandonpu.webapp.biblioteca.controller.FXController.IndexController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.brandonpu.webapp.biblioteca.controller.FXController.IndexController">
    <children>
-      <Label layoutX="206.0" layoutY="175.0" text="Hola Mundo">
-         <font>
-            <Font size="34.0" />
-         </font>
-      </Label>
+      <ImageView fitHeight="700.0" fitWidth="1080.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/MenuPrincipal.png" />
+         </image>
+      </ImageView>
+      <MenuBar prefHeight="20.0" prefWidth="1080.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="Modulos">
+            <items>
+              <MenuItem fx:id="btnCategorias" mnemonicParsing="false" onAction="#handleButtonAction" text="Categorias" />
+                  <MenuItem fx:id="btnClientes" mnemonicParsing="false" onAction="#handleButtonAction" text="Clientes" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Ayuda" />
+        </menus>
+      </MenuBar>
    </children>
 </AnchorPane>

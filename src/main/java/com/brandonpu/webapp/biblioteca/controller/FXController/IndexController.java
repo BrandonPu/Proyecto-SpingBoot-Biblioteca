@@ -7,11 +7,17 @@ import org.springframework.stereotype.Component;
 
 import com.brandonpu.webapp.biblioteca.system.Main;
 
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.MenuItem;
 import lombok.Setter;
 
 @Component
 public class IndexController implements Initializable {
+
+    @FXML
+    MenuItem btnCategorias,btnClientes;
 
     @Setter
     private Main stage;
@@ -19,6 +25,15 @@ public class IndexController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resources) {
         
+    }
+
+    @FXML
+    public void handleButtonAction(ActionEvent event){
+        if (event.getSource() == btnCategorias) {
+            stage.menuCategorias();
+        } else if(event.getSource() == btnClientes){
+            stage.menuClientes();
+        }
     }
     
 
