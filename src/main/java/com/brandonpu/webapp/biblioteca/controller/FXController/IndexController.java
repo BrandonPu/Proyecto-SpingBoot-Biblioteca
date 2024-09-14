@@ -17,7 +17,7 @@ import lombok.Setter;
 public class IndexController implements Initializable {
 
     @FXML
-    MenuItem btnCategorias,btnClientes,btnEmpleados;
+    MenuItem btnCategorias,btnClientes,btnEmpleados,btnLibros;
 
     @Setter
     private Main stage;
@@ -35,6 +35,8 @@ public class IndexController implements Initializable {
             stage.menuClientes();
         } else if (event.getSource() == btnEmpleados) {
             stage.menuEmpleados();
+        } else if(event.getSource() == btnLibros){
+            stage.menuLibros();
         }
     }
     
