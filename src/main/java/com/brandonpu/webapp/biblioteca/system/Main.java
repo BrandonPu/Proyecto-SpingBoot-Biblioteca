@@ -10,6 +10,7 @@ import com.brandonpu.webapp.biblioteca.BibliotecaApplication;
 import com.brandonpu.webapp.biblioteca.controller.FXController.IndexController;
 import com.brandonpu.webapp.biblioteca.controller.FXController.MenuCategorias;
 import com.brandonpu.webapp.biblioteca.controller.FXController.MenuClientes;
+import com.brandonpu.webapp.biblioteca.controller.FXController.MenuEmpleados;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -80,6 +81,15 @@ public class Main extends Application{
             menuClientes.setStage(this);
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    public void menuEmpleados(){
+        try {
+            MenuEmpleados menuEmpleados = (MenuEmpleados)switchScene("MenuEmpleados.fxml", 1280, 720);
+            menuEmpleados.setStage(this);
+        } catch (Exception e) {
+            // TODO: handle exception
         }
     }
 }

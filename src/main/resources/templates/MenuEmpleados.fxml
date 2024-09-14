@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.brandonpu.webapp.biblioteca.controller.FXController.MenuEmpleados">
+   <children>
+      <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/MenuEmpleados.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="tfId" editable="false" layoutX="994.0" layoutY="7.0" prefHeight="32.0" prefWidth="171.0" />
+      <TextField fx:id="tfNombre" layoutX="803.0" layoutY="92.0" prefHeight="40.0" prefWidth="238.0" />
+      <TextField fx:id="tfApellido" layoutX="821.0" layoutY="181.0" prefHeight="40.0" prefWidth="238.0" />
+      <TextField fx:id="tfTelefono" layoutX="803.0" layoutY="281.0" prefHeight="40.0" prefWidth="238.0" />
+      <TextField fx:id="tfDireccion" layoutX="791.0" layoutY="380.0" prefHeight="40.0" prefWidth="238.0" />
+      <TextField fx:id="tfDpi" layoutX="965.0" layoutY="472.0" prefHeight="40.0" prefWidth="183.0" />
+      <TableView fx:id="tblEmpleados" layoutX="14.0" layoutY="184.0" onMouseClicked="#cargarFormEditar" prefHeight="410.0" prefWidth="771.0">
+         <columns>
+            <TableColumn fx:id="colId" minWidth="8.800019264221191" prefWidth="64.80001544952393" text="Id" />
+            <TableColumn fx:id="colNombre" minWidth="0.0" prefWidth="123.199951171875" text="Nombre" />
+            <TableColumn fx:id="colApellido" minWidth="0.0" prefWidth="109.59996032714844" text="Apellido" />
+            <TableColumn fx:id="colTelefono" minWidth="0.0" prefWidth="99.20001220703125" text="Telefono" />
+            <TableColumn fx:id="colDireccion" minWidth="0.0" prefWidth="223.99993896484375" text="Direccion" />
+            <TableColumn fx:id="colDpi" minWidth="0.0" prefWidth="144.800048828125" text="Dpi" />
+         </columns>
+      </TableView>
+      <Button fx:id="btnGuardar" layoutX="815.0" layoutY="466.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="51.0" prefWidth="106.0" text="Guardar">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnEliminar" layoutX="29.0" layoutY="616.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="51.0" prefWidth="106.0" text="Eliminar">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnLimpiar" layoutX="609.0" layoutY="132.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="36.0" prefWidth="168.0" text="Limpiar Formulario">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnRegresar" layoutX="1079.0" layoutY="634.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="51.0" prefWidth="137.0" text="Menu Principal">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
